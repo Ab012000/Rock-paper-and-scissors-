@@ -1,0 +1,55 @@
+print("ROCK....PAPER....SCISSOR")
+print("Game designed by Anvi\nHope you will enjoy playing the game\nHave Fun")
+print("Programming instrumentation :\n Two player are required to play rock paper and scissor until you want with a condition on drawing the match, it automatically starts again while in wins It ask whether you want to play again")
+print("\n\nchoose your move from rock,paper and scissor\n Use the same format as it is case sensitive")
+#define Every string value
+rock = "rock"
+paper = "paper"
+scissor = "scissor"
+yes = "yes"
+draw = "\nmatch draw\n Try again"
+w1 = "\nPlayer1 win"
+w2 = "\nPlayer2 win"
+def play():#Loop asking whether you want to play more
+        more = str(input("Want to play once more\n Just type yes :"))
+        if(more == yes):
+                print("Here you go")
+                rps()
+        else:
+                print("hope you had fun")
+def rps():
+        #Take players move
+        move_player1 = str(input("Player 1 your move is :"))
+        move_player2 = str(input("Player 2 your move is :"))
+        #Make three cases taking player one as the one, making the first move
+        if(move_player1 == rock):
+                if(move_player2 == rock):
+                        print("\nmatch draw\n try again")
+                        rps()#As the match draws, the loop begins again
+                elif(move_player2 == paper):
+                        print("\nPlayer2 win")
+                        play()#As one player won, It askes for an another match
+                else:
+                        print("\nPlayer1 win")
+                        play()#As one player won, It asks for another match 
+        elif(move_player1 == paper):
+                if(move_player2 == paper):
+                        print(draw)
+                        rps()
+                elif(move_player2 == scissor):
+                        print(w2)
+                        play()
+                else:
+                        print(w1)
+                        play()
+        elif(move_player1 == scissor):
+                if(move_player2 == scissor):
+                        print(draw)
+                        rps()
+                elif(move_player2 == rock):
+                        print(w2)
+                        play()
+                else:
+                        print(w1)
+                        play()
+rps()
